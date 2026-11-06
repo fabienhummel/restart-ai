@@ -6,6 +6,17 @@
 
 > **Statut : concept / AI Entry.** ReStart AI est une application envisagée, pas encore un logiciel opérationnel. Les fonctionnalités et intégrations décrites ici ne sont pas implémentées.
 
+
+## Documentation détaillée
+
+| Sujet | Français | English |
+| --- | --- | --- |
+| Architecture | [Architecture](docs/architecture.fr.md) | [Architecture](docs/architecture.md) |
+| Fonctionnalités | [Fonctionnalités](docs/features.fr.md) | [Features](docs/features.md) |
+| Scénarios | [Cas d'usage](docs/use-cases.fr.md) | [Use cases](docs/use-cases.md) |
+| Confidentialité et sécurité | [Confidentialité et sécurité](docs/privacy-security.fr.md) | [Privacy & safety](docs/privacy-security.md) |
+| Développement | [Feuille de route](docs/roadmap.fr.md) | [Roadmap](docs/roadmap.md) |
+
 ## Le problème
 
 Une perte d'emploi ou une reconversion entraîne de nombreuses démarches : faire le bilan de ses compétences, explorer de nouveaux métiers, rechercher des offres, adapter son CV, rédiger des lettres de motivation, suivre les candidatures, préparer les entretiens et identifier les formations utiles.
