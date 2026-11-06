@@ -6,6 +6,17 @@
 
 > **Project status: Concept / AI Entry.** ReStart AI is a proposed application, not an operational product. The features and integrations below are planned, not implemented.
 
+
+## Detailed documentation
+
+| Topic | English | Français |
+| --- | --- | --- |
+| Architecture | [Architecture](docs/architecture.md) | [Architecture](docs/architecture.fr.md) |
+| Planned features | [Features](docs/features.md) | [Fonctionnalités](docs/features.fr.md) |
+| User journeys | [Use cases](docs/use-cases.md) | [Cas d'usage](docs/use-cases.fr.md) |
+| Privacy and safety | [Privacy & safety](docs/privacy-security.md) | [Confidentialité et sécurité](docs/privacy-security.fr.md) |
+| Development plan | [Roadmap](docs/roadmap.md) | [Feuille de route](docs/roadmap.fr.md) |
+
 ## The problem
 
 Job loss and career transitions can mean navigating many disconnected tasks: identifying transferable skills, finding relevant opportunities, adapting résumés, writing cover letters, tracking applications, preparing for interviews, and planning training.
