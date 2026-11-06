@@ -1,6 +1,6 @@
 # ReStart AI
 
-**Un coach IA local pour la recherche d'emploi, la reconversion professionnelle et les personnes touchées par les suppressions de postes liées à l'intelligence artificielle.**
+**Un coach IA hybride, avec des données appartenant à l'utilisateur, pour la recherche d'emploi, la reconversion et les personnes touchées par l'automatisation.**
 
 [Français](README.fr.md) · [English](README.md)
 
@@ -12,6 +12,7 @@
 | Sujet | Français | English |
 | --- | --- | --- |
 | Architecture | [Architecture](docs/architecture.fr.md) | [Architecture](docs/architecture.md) |
+| IA hybride et stockage personnel | [Architecture hybride](docs/hybrid-architecture.fr.md) | [Hybrid design](docs/hybrid-architecture.md) |
 | Fonctionnalités | [Fonctionnalités](docs/features.fr.md) | [Features](docs/features.md) |
 | Scénarios | [Cas d'usage](docs/use-cases.fr.md) | [Use cases](docs/use-cases.md) |
 | Confidentialité et sécurité | [Confidentialité et sécurité](docs/privacy-security.fr.md) | [Privacy & safety](docs/privacy-security.md) |
@@ -64,7 +65,7 @@ Agent coordinateur (Python)
           +-- Suivi des candidatures et rappels
           +-- Connecteurs facultatifs (Notion / agenda / e-mail)
           |
-LLM local via Ollama + recherche documentaire privée
+Ollama local ou API IA cloud choisie + recherche documentaire privée
           |
 Stockage local de l'application
 ```
@@ -77,11 +78,13 @@ Plusieurs fonctions spécialisées pourraient partager un même modèle local pl
 
 La **ASUS GeForce RTX 5060 Ti 16 Go** et la **ASUS PRIME B860-PLUS WIFI** constituent une **configuration matérielle cible envisagée**, et non du matériel sur lequel le projet aurait déjà été testé. Un PC complet nécessite également un processeur compatible, de la mémoire, du stockage et d'autres composants.
 
-L'objectif est de privilégier l'inférence GPU locale sur un PC grand public, avec des modèles plus légers sur les machines modestes. Aucune mesure de performances ni validation matérielle n'a encore été effectuée pour ReStart AI.
+L'inférence GPU locale sur PC grand public est une option, mais le projet prévoit aussi des API IA cloud choisies par l'utilisateur pour fonctionner sans GPU dédié. Aucune mesure de performances ni validation matérielle n'a encore été effectuée pour ReStart AI.
 
 ## Confidentialité, sécurité et confiance
 
-- Traitement et stockage locaux par défaut ; connexions cloud facultatives avec consentement.
+- Choix indépendants du moteur IA (Ollama local ou API cloud personnelle) et du stockage (dossier local, synchronisé ou compte cloud autorisé).
+- La web app pourrait être hébergée sur un VPS sans base de données persistante de profils. Certaines requêtes pourraient néanmoins transiter par le VPS et le fournisseur IA : ces flux seront explicités.
+- Fichiers Markdown structurés comme source de vérité portable et appartenant à l'utilisateur. Voir [architecture hybride](docs/hybrid-architecture.fr.md).
 - Validation explicite avant l'envoi d'une candidature, d'un e-mail ou d'informations personnelles.
 - Aucune invention de diplômes, d'expériences ou de compétences.
 - Explication des rapprochements entre profils et offres et signalement des incertitudes.
