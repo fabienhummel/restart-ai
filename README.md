@@ -1,6 +1,6 @@
 # ReStart AI
 
-**A local-first AI career coach for job seekers, career changers, and people affected by AI-driven job displacement.**
+**A hybrid, user-data-owned AI career coach for job seekers, career changers, and people affected by AI-driven job displacement.**
 
 [English](README.md) · [Français](README.fr.md)
 
@@ -12,6 +12,7 @@
 | Topic | English | Français |
 | --- | --- | --- |
 | Architecture | [Architecture](docs/architecture.md) | [Architecture](docs/architecture.fr.md) |
+| Hybrid AI & personal storage | [Hybrid design](docs/hybrid-architecture.md) | [Architecture hybride](docs/hybrid-architecture.fr.md) |
 | Planned features | [Features](docs/features.md) | [Fonctionnalités](docs/features.fr.md) |
 | User journeys | [Use cases](docs/use-cases.md) | [Cas d'usage](docs/use-cases.fr.md) |
 | Privacy and safety | [Privacy & safety](docs/privacy-security.md) | [Confidentialité et sécurité](docs/privacy-security.fr.md) |
@@ -51,7 +52,7 @@ Instead of being only a résumé generator or chatbot, the agent would be able t
 5. It proposes follow-ups and tracker updates.
 6. **No application, email, or sensitive information is sent without explicit user approval.**
 
-## Local-first architecture (proposed)
+## Hybrid architecture (proposed)
 
 ```text
 User / web interface
@@ -64,7 +65,7 @@ Career coordinator (Python / orchestration)
         +-- Application tracking & reminders
         +-- Optional connectors (Notion / calendar / email)
         |
-Local LLM via Ollama + private document retrieval
+User-selected local Ollama or cloud AI API + private retrieval
         |
 Local application storage
 ```
@@ -81,7 +82,9 @@ The intended design would favor GPU-accelerated local inference on a consumer PC
 
 ## Privacy, safety, and trust
 
-- Local processing and storage by default; optional cloud integrations only with informed permission.
+- Independent user choices for AI (local Ollama or user-selected cloud API) and storage (local folder, synced folder or authorized personal cloud account).
+- A VPS-hosted web app may serve the interface and stateless logic without retaining a persistent user-profile database. Request data may still transit the VPS or AI provider; transparently disclose the data path.
+- Markdown files with structured metadata as the portable, user-controlled source of truth. See [hybrid architecture](docs/hybrid-architecture.md).
 - Explicit approval before sending applications, emails, or personal documents.
 - No invented qualifications, degrees, work history, or achievements.
 - Evidence and uncertainty shown when comparing job opportunities.
