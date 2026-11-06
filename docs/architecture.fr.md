@@ -5,7 +5,9 @@
 > Proposition d'architecture uniquement. Aucun agent opérationnel ni intégration fonctionnelle n'est revendiqué.
 
 ## Principes
-- **Local d'abord :** modèle IA et données personnelles en local par défaut.
+- **Hybride et données personnelles maîtrisées :** Ollama local ou API cloud, fichiers locaux ou cloud personnel, deux choix indépendants.
+- **Séparation du VPS :** hébergement possible de la web app et d'API sans conservation durable des dossiers professionnels ; certaines requêtes peuvent transiter par le serveur.
+- **Référence :** voir [architecture hybride](hybrid-architecture.fr.md) pour les limites des navigateurs, la gestion des identifiants et les fichiers Markdown.
 - **Contrôle humain :** les consultations peuvent être automatisées ; l'envoi, le partage et toute modification importante nécessitent une validation explicite.
 - **Modularité :** adaptateurs remplaçables pour les offres, documents et outils de productivité.
 - **Traçabilité :** provenance des informations, actions et validations, en limitant les données journalisées.
@@ -18,7 +20,7 @@ flowchart TD
     U[Utilisateur] --> UI[Interface web]
     UI --> CO[Agent coordinateur]
     CO --> POLICY[Permissions et validations]
-    CO --> LLM[LLM local via Ollama]
+    CO --> LLM[Adaptateur IA locale ou cloud]
     CO --> P[Profil professionnel]
     CO --> J[Connecteur offres d'emploi]
     CO --> DOC[Création documentaire]
@@ -41,7 +43,7 @@ flowchart TD
 6. Présenter les actions réalisées, les incertitudes et les suites proposées.
 
 ## Frontières des données
-Les documents personnels, le parcours professionnel, les offres enregistrées et les brouillons restent locaux par défaut. Les recherches externes peuvent divulguer des termes de requête : elles devront éviter les détails personnels inutiles. Les intégrations distantes resteront facultatives, limitées et révocables.
+Les documents personnels, le parcours professionnel, les offres enregistrées et les brouillons sont conservés dans le stockage choisi par l'utilisateur (local ou cloud personnel autorisé). Les recherches externes peuvent divulguer des termes de requête : elles devront éviter les détails personnels inutiles. Les intégrations distantes resteront facultatives, limitées et révocables.
 
 ## Choix techniques à étudier
 Python, FastAPI, Ollama avec un modèle quantifié, SQLite pour un prototype, python-docx et LibreOffice, Docker Compose si utile. Le RAG et une base vectorielle restent optionnels. La plateforme ASUS RTX 5060 Ti 16 Go est une référence matérielle envisagée, **pas une configuration testée**.
