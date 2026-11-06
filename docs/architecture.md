@@ -5,7 +5,9 @@
 > Design proposal only. No running agent or integrated application is claimed.
 
 ## Design principles
-- **Local-first:** local LLM inference and private data by default.
+- **Hybrid-first and user-owned data:** local Ollama or cloud model API; files saved locally or to a user-controlled cloud account, with independent selection.
+- **VPS separation:** the public VPS may deliver the app and stateless APIs, but should not persist users' professional records. Requests may still transit the server.
+- **Authoritative detail:** see [hybrid design](hybrid-architecture.md) for browser limitations, credential handling and Markdown storage.
 - **Human control:** read-only operations may be automated; sending, sharing, publishing and material changes require explicit approval.
 - **Modular:** adapters for job sources, document editors and personal productivity services are replaceable.
 - **Traceable:** every sourced fact, tool call, recommendation and approval is recorded with minimal necessary detail.
@@ -18,7 +20,7 @@ flowchart TD
     U[User] --> UI[Web interface]
     UI --> CO[Career coordinator]
     CO --> POLICY[Permissions and approval gate]
-    CO --> LLM[Local LLM via Ollama]
+    CO --> LLM[AI provider adapter: local or cloud]
     CO --> P[Professional profile]
     CO --> J[Job search adapter]
     CO --> DOC[Document builder]
@@ -41,7 +43,7 @@ flowchart TD
 6. Show the user actions taken, uncertain facts and suggested next steps.
 
 ## Data boundaries
-Personal files, structured professional history, saved offers and generated drafts remain in local storage by default. External searches may reveal search terms, so requests should omit unnecessary personal details. Remote integrations should be optional, scoped and revocable.
+Personal files, structured professional history, saved offers and generated drafts remain in user-controlled storage (local directory or authorized personal cloud) by design. External searches may reveal search terms, so requests should omit unnecessary personal details. Remote integrations should be optional, scoped and revocable.
 
 ## Candidate technology, not a final decision
 Python; FastAPI; Ollama with a quantized open-weight model; SQLite for early prototypes; python-docx and LibreOffice for document output; Docker Compose if useful. RAG and a vector store are optional, not prerequisites. The proposed ASUS RTX 5060 Ti 16 GB platform is a hardware reference, **not a tested configuration**.
